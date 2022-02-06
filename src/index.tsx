@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./components/App";
-const rootEl = document.getElementById("wrapper");
+import AppRoot from "./components/AppRoot";
+const rootEl = document.getElementById("root");
 
-render(<App />, rootEl);
+render(<AppRoot />, rootEl);
