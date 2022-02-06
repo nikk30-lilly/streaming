@@ -1,12 +1,13 @@
 // shared config (dev and prod)
 const { resolve } = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
-  context: resolve(__dirname, "../../src"),
+  context: resolve(__dirname, "../../src/"),
   module: {
     rules: [
       {
@@ -31,11 +32,20 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "index.html" })],
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM",
-  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: "index.html" }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        API_URL: JSON.stringify(process.env.API_URL),
+      },
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    }),
+  ],
   performance: {
     hints: false,
   },
