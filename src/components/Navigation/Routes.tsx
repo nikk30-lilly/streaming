@@ -1,4 +1,5 @@
 import React from "react";
+import { Home } from "../../pages/Home/Home";
 const HomePage: React.FC = () => {
   return <h1 style={{ height: "200px", background: "blue" }}>Teams</h1>;
 };
@@ -14,7 +15,7 @@ export const Routes: Array<IRoute> = [
   {
     path: "/",
     sidebarName: "Home",
-    component: HomePage,
+    component: Home,
     open: false,
   },
   {
