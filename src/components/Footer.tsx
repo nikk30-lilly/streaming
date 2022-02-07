@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-
-const Header: React.FC = () => {
+import "../../css/style3860.css";
+const Footer: React.FC = () => {
   return (
     <div className="footer_wrapper">
       <footer className="footer cf">
@@ -110,4 +110,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default Footer;

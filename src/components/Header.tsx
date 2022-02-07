@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import "../../css/style3860.css";
 
 const Header: React.FC = () => {
   return (
