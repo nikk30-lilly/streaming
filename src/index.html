@@ -26,6 +26,311 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div id="root" class="wrapper"></div>
+        <div id="root" class="wrapper">
+            <script src="js/scripts.min.js"></script>
+            <script src="js/jquery.validate.min.js"></script>
+            <script src="js/moment.min.js"></script>
+            <script src="js/lodash.min.js"></script>
+            <script>
+                $(function () {
+
+                    $('.fancy').fancybox();
+
+                    $('#video a').fancybox({
+                        width: 640,
+                        height: 360,
+                        autoSize: false,
+                        type: 'iframe',
+                        helpers: {
+                            overlay: {
+                                locked: false,
+                                css: {
+                                    'background': 'rgba(0, 0, 0, 0.5)'
+                                }
+                            }
+                        },
+                    });
+
+                    /*
+                     * loader dla slidów
+                     */
+                    $(document).on('init.slides', function () {
+                        $('.loader').fadeOut(function () {
+                            $(this).remove();
+                        });
+                    });
+
+                    /*
+                     * superslides
+                     */
+                    $('.slides').each(function (idx, dom) {
+                        $(dom).superslides({
+                            pagination: false,
+                            animation_speed: 500,
+                            inherit_height_from: $(dom).parent()
+                        });
+
+                        $(dom).has('li:gt(0)').swipe({
+                            swipeLeft: function (event) {
+                                $(dom).superslides('animate', 'next');
+                            },
+                            swipeRight: function (event) {
+                                $(dom).superslides('animate', 'prev');
+                            },
+                            allowPageScroll: 'auto'
+                        });
+                    });
+
+                    /*
+                     * news zwiń/rozwiń
+                     */
+                    $('.news__more_btn').on('click', function (e) {
+                        e.preventDefault();
+                        var $btn = $(this);
+                        var $art = $btn.closest('article');
+                        $btn.toggleClass('is_active');
+
+                        if ($btn.hasClass('is_active')) {
+                            var prevHeight = $art.outerHeight();
+                            var $artCloned = $art.clone();
+                            var afterHeight = $artCloned.css('height', 'auto').appendTo('body').outerHeight();
+                            $artCloned.remove();
+
+                            $art.data('prevHeight', prevHeight).stop(true).animate({ 'height': afterHeight + 'px' }, 1000, function () {
+                                $btn.closest('article').addClass('is_expanded');
+                                $btn.text('collapse');
+                            });
+
+                        } else {
+                            $art.removeClass('is_expanded');
+                            $('html,body').stop(true).animate({ scrollTop: $art.offset().top + 'px' }, 1000, function () {
+                                $art.stop(true).animate({ 'height': $art.data('prevHeight') + 'px' }, 1000, function () {
+                                    $btn.html('read more &raquo;');
+                                });
+                            });
+                        }
+                    });
+
+                    /*
+                     * filtrowanie
+                     * kanałow
+                     */
+                    $('#channels').mixItUp({
+                        controls: {
+                            enable: false
+                        },
+                        animation: {
+                            enable: false,
+                            effects: 'fade scale',
+                            easing: 'ease',
+                            duration: 600
+                        },
+                        selectors: {
+                            target: '.mix'
+                        },
+                        load: {
+                            filter: (function () {
+                                var hash = window.location.hash;
+                                if (hash.replace(/\s+/, '').length) {
+                                    hash = hash.substr(1);
+                                    $('#select_country').selectbox('change', hash).next().find('.sbSelector').text($('#select_country').find('option[value="' + hash + '"]').val());
+                                    return '.' + hash;
+                                } else {
+                                    return 'all';
+                                }
+                            })()
+                        }
+                    });
+
+                    /**
+                     * dropdown z krajami
+                     */
+                    $('#select_country').selectbox({
+                        onOpen: function (inst) {
+                            if ($('.coutries_form .sbOptions').data('jsp'))
+                                $('.coutries_form .sbOptions').removeData('jsp');
+
+                            $('.coutries_form .sbOptions').jScrollPane({
+                                mouseWheelSpeed: 20
+                            });
+                        },
+                        onChange: function (value, inst) {
+                            $('#channels').mixItUp('filter', ((value == 'all') ? 'all' : '.' + value), true);
+                        },
+                        effect: 'fade'
+                    });
+
+
+
+
+                    /*
+                     * filtrowanie
+                     * krajów/regionów
+                     */
+                    $('#regions,#countries').mixItUp({
+                        controls: {
+                            enable: false
+                        },
+                        animation: {
+                            enable: false,
+                            effects: 'fade translateZ(-360px)',
+                            easing: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+                            duration: 400
+                        },
+                        selectors: {
+                            target: '.mix'
+                        }
+                    });
+
+                    /*
+                     * search po krajach
+                     */
+                    $('#country_regions_form').on('input', function (e) {
+                        var value = $(':text', this).val().toLowerCase();
+
+                        if (typeof t != 'undefined') {
+                            clearTimeout(t);
+                        }
+
+                        if (value.replace(/\s+/g, '').length) {
+                            t = setTimeout(function () {
+                                var collection = $('#regions,#countries').find('article').filter(function (i) {
+                                    return ($('h3', this).text().toLowerCase().indexOf(value) != -1) ? true : false;
+                                });
+                                if (collection.length) {
+                                    $('#regions,#countries').mixItUp('filter', collection, true);
+                                } else {
+                                    $('#regions,#countries').mixItUp('filter', 'all', true);
+                                }
+                            }, 1000);
+                        } else {
+                            $('#regions,#countries').mixItUp('filter', 'all', true);
+                        }
+                    }).on('submit', function (e) {
+                        e.preventDefault();
+                        $(this).trigger('input');
+                    });
+
+                    /*
+                     * menu zwiń/rozwiń
+                     */
+                    $('#menu_btn').on('click', function (e) {
+                        var $btn = $(this);
+                        $btn.toggleClass('is_active');
+
+                        if ($btn.hasClass('is_active')) {
+                            $('#menu').stop(true).fadeIn('fast');
+                        } else {
+                            $('#menu').stop(true).fadeOut('fast');
+                        }
+                    });
+
+                    $('#menu_part').on('click', function (e) {
+                        var $btn = $(this);
+                        $btn.toggleClass('is_active');
+
+                        if ($btn.hasClass('is_active')) {
+                            $('#dropdown-menu').stop(true).fadeIn('fast');
+                        } else {
+                            $('#dropdown-menu').stop(true).fadeOut('fast');
+                        }
+                    });
+
+
+                    /*
+                     * jump top
+                     */
+                    $('#go_top').on('click', function (e) {
+                        e.preventDefault();
+                        $('html, body').animate({ scrollTop: 0 }, 1500);
+                    });
+
+                    /*
+                     * video fullpage
+                     */
+                    $('#fp_video').one('click', '.btn--get_spi', function (e) {
+                        var delegated = $(e.delegateTarget);
+                        var video = delegated.find('video');
+
+                        delegated.off('click', '**').find('header').add($('.jumping_btn', delegated)).remove();
+                        video.prop('controls', true).removeAttr('loop')
+                          .attr('poster', 'img/poster.jpg')
+                          .find('source')
+                          .attr('src', function (idx, val) {
+                              w = $(document).width();
+                              url = 'https://vod-progressive.akamaized.net/exp=1643881213~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4321%2F26%2F671608214%2F3092979558.mp4~hmac=ce39d65b5fb44855cb8dc26dfe3e1fca92d8b2607b2dd21adae6e96039eba3ac/vimeo-prod-skyfire-std-us/01/4321/26/671608214/3092979558.mp4?filename=1080p.mp4';
+                              img = 'video/KICKOFF%202020-web-.jpg';
+                              /*if(w <= 412){
+                                  url = '/video/2020-KICKOFF360-640.mp4';
+                                  img = '/video/2020-KICKOFF360-640.jpg';
+                              }
+                              if(w > 412 && w <= 768){
+                                  url = '/video/2020-KICKOFF-412-846.mp4';
+                                  img = '/video/2020-KICKOFF-412-846.jpg';
+                              }
+                              if(w > 768 && w <= 1366){
+                                  url = '/video/2020-KICKOFF-768-1024.mp4';
+                                  img = '/video/2020-KICKOFF-768-1024.jpg';
+                              }
+                              if(w > 1366 && w <= 1920){
+                                  url = '/video/2020-KICKOFF-1366-768.mp4';
+                                  img = '/video/2020-KICKOFF-1366-768.jpg';
+                              }*/
+                              return url;
+                              //return (!idx) ? 'https://spiintl.com/data/mov/SPIintl_intro-01.2020.mp4' : 'https://spiintl.com/data/mov/SPIintl_intro-01.2020.webm';
+                          });
+
+                        video.get(0).load();
+                        video.on('canplay', function () {
+                            this.play();
+                        });
+                    });
+
+                    /*
+                     * jumping btn
+                     */
+                    $('.jumping_btn').on('click', function () {
+                        $('html,body').stop(true).animate({ scrollTop: $(this).parent().next('section').offset().top + 'px' }, 1500);
+                    });
+
+                    /*
+                     * checkCookie
+                     */
+                    function checkCookie(cookieName) {
+
+                        var cookies = document.cookie.split(';'),
+                          cookiesLength = cookies.length,
+                          currCookie;
+
+                        for (var i = 0; i < cookiesLength; i++) {
+                            currCookie = cookies[i].substr(0, cookies[i].indexOf('='));
+                            if ($.trim(currCookie) == cookieName) {
+                                return cookies[i].substr(cookies[i].indexOf('=') + 1);
+                            }
+                        }
+                        return false;
+                    }
+
+                    /*
+                     * setCookie
+                     */
+                    function setCookie(cookieName, cookieVal, exdays) {
+                        var exdate = new Date();
+                        exdate.setTime(exdate.getTime() + exdays);
+                        var cookieVal = escape(cookieVal) + ((exdays == null) ? '' : '; expires=' + exdate.toUTCString() + ';domain=.spiintl.com;path=/');
+                        document.cookie = cookieName + '=' + cookieVal;
+                    }
+
+                    $.validator.addMethod('required_method', function (value, element) {
+                        return ($(element).val().replace(/\s+/, '').length > 0 && ($(element).val() != element.defaultValue)) ? true : false;
+                    });
+
+                    if ($('#error_msg').length) {
+                        $('#error_msg').delay(3000).slideUp('fast');
+                    }
+
+                });
+            </script>
+        </div>
     </body>
 </html>

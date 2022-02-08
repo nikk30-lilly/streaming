@@ -1,5 +1,10 @@
 import React from "react";
 import "../../../css/style3860.css";
+import one from "../../../assets/data/files/1.png";
+import two from "../../../assets/data/files/2.png";
+import three from "../../../assets/data/files/3.png";
+import four from "../../../assets/data/files/4.png";
+import five from "../../../assets/data/files/5.png";
 
 export const Home: React.FC = () => {
   return (
@@ -47,7 +52,7 @@ export const Home: React.FC = () => {
                 srcSet="../../../assets/data/files/1350a382e632c861ebe93590dea38e784f36ae2fc36eb9df88d10b99fee14447_768x1024.jpg"
                 media="(max-width: 1024px) and (orientation: portrait)"
               />
-              <img srcSet="../../../assets/data/files/1.png" alt="Dizi" />
+              <img srcSet={one} alt="Dizi" />
             </picture>
           </li>
           <li>
@@ -60,7 +65,7 @@ export const Home: React.FC = () => {
                 srcSet="../../../assets/data/files/511fedaf38b22c8871302a7ebddebc57968a8490ae25dd6a74cadf4dd0a048be_768x1024.jpg"
                 media="(max-width: 1024px) and (orientation: portrait)"
               />
-              <img srcSet="../../../assets/data/files/2.png" alt="FilmBox" />
+              <img srcSet={two} alt="FilmBox" />
             </picture>
           </li>
           <li>
@@ -73,10 +78,7 @@ export const Home: React.FC = () => {
                 srcSet="../../../assets/data/files/7873d4092165f6fb80b771ba19cbc774fb4f0962f36b38e5bef2f678251d4c04_768x1024.jpg"
                 media="(max-width: 1024px) and (orientation: portrait)"
               />
-              <img
-                srcSet="../../../assets/data/files/3.png"
-                alt="FilmBox Premium"
-              />
+              <img srcSet={three} alt="FilmBox Premium" />
             </picture>
           </li>
           <li>
@@ -89,7 +91,7 @@ export const Home: React.FC = () => {
                 srcSet="../../../assets/data/files/90b57c27afe6c32b09c2ba09bdaee214490e4bf9b04d815f9c00a90f4ca5d6fb_768x1024.jpg"
                 media="(max-width: 1024px) and (orientation: portrait)"
               />
-              <img srcSet="../../../assets/data/files/4.png" alt="FightBox" />
+              <img srcSet={four} alt="FightBox" />
             </picture>
           </li>
           <li>
@@ -102,10 +104,7 @@ export const Home: React.FC = () => {
                 srcSet="../../../assets/data/files/0b77012569af2961c817d1818ab107a972d7d5cdeab39231f22058092a16de39_768x1024.jpg"
                 media="(max-width: 1024px) and (orientation: portrait)"
               />
-              <img
-                srcSet="../../../assets/data/files/5.png"
-                alt="Fast\&amp;amp;amp;Fun Box"
-              />
+              <img srcSet={five} alt="Fast\&amp;amp;amp;Fun Box" />
             </picture>
           </li>
         </ul>
@@ -114,49 +113,6 @@ export const Home: React.FC = () => {
           <a className="prev">prev</a>
         </nav>
         <div className="jumping_btn"></div>
-      </section>
-      <section className="sec sec--slider slides">
-        <div className="loader">
-          <div className="pulse"></div>
-        </div>
-        <ul className="slides-container">
-          <li>
-            <picture>
-              <source
-                srcSet="../../../assets/data/files/faf7ddd6adc8840fb4dfb543fb91d12fffed8d293505b1be9be4e9314852bff0_1024x768.png"
-                media="(max-width: 1024px) and (orientation: landscape)"
-              />
-              <source
-                srcSet="../../../assets/data/files/faaba9926eac165df879ee335056d1d1989a25fcee562e036301831c8c8a5664_768x1024.png"
-                media="(max-width: 1024px) and (orientation: portrait)"
-              />
-              <img
-                srcSet="../../../assets/data/files/faf7ddd6adc8840fb4dfb543fb91d12fffed8d293505b1be9be4e9314852bff0.png"
-                alt="Online Media 2"
-              />
-            </picture>
-          </li>
-          <li>
-            <picture>
-              <source
-                srcSet="../../../assets/data/files/2364d184596222ab8163944fe0a5d59997c8182511207dc87d63e57552a11687_1024x768.jpeg"
-                media="(max-width: 1024px) and (orientation: landscape)"
-              />
-              <source
-                srcSet="../../../assets/data/files/d7151050762f5611d09b0194507e3aec085833a80799813b79b68a0c459a601a_768x1024.jpeg"
-                media="(max-width: 1024px) and (orientation: portrait)"
-              />
-              <img
-                srcSet="../../../assets/data/files/2364d184596222ab8163944fe0a5d59997c8182511207dc87d63e57552a11687.jpeg"
-                alt="Fast Channels"
-              />
-            </picture>
-          </li>
-        </ul>
-        <nav className="slides-navigation">
-          <a className="next">next</a>
-          <a className="prev">prev</a>
-        </nav>
       </section>
     </main>
   );

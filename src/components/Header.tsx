@@ -1,11 +1,11 @@
 import React from "react";
 import "../../css/style3860.css";
-
+import logo from "../../assets/img/logo.png";
 const Header: React.FC = () => {
   return (
     <header className="header">
       <a href="index.html" className="logo logo--spi" title="SPI International">
-        <img src="img/logo.png" alt="Flock logo" />
+        <img src={logo} alt="Flock logo" />
       </a>
       <div id="menu_btn" className="btn btn--menu">
         <div className="strips_bar"></div>
