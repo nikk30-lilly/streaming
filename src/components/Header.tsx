@@ -1,44 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/style3860.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 
 const Header: React.FC = () => {
-  useEffect(() => {
-    if (window && document) {
-      $("#menu_btn").on("click", function (e) {
-        const $btn = $(this);
-        $btn.toggleClass("is_active");
+  const [show, setShow] = useState<boolean>(false);
+  const toggleMenu = () => {
+    setShow(!show);
+  };
 
-        if ($btn.hasClass("is_active")) {
-          $("#menu").stop(true).fadeIn("fast");
-        } else {
-          $("#menu").stop(true).fadeOut("fast");
-        }
-      });
-    }
-    //
-    // $("#menu_part").on("click", function (e) {
-    //   const $btn = $(this);
-    //   $btn.toggleClass("is_active");
-    //
-    //   if ($btn.hasClass("is_active")) {
-    //     $("#dropdown-menu").stop(true).fadeIn("fast");
-    //   } else {
-    //     $("#dropdown-menu").stop(true).fadeOut("fast");
-    //   }
-    // });
-  }, []);
   return (
     <header className="header">
       <a href="index.html" className="logo logo--spi" title="SPI International">
         <img src={logo} alt="Flock logo" />
       </a>
-      <div id="menu_btn" className="btn btn--menu">
+      <div id="menu_btn" className="btn btn--menu" onClick={() => toggleMenu()}>
         <div className="strips_bar"></div>
       </div>
-      <div id="menu" className="menu">
-        <ul className="nav nav--main">
+      <div
+        id="menu"
+        className={show ? `menu menu-toggle-show` : `menu menu-toggle-hide`}
+      >
+        <ul className="nav nav--main" onClick={() => setShow(!show)}>
           <li className="nav__item">
             <NavLink to="/news" className="block">
               news

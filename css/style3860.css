@@ -853,7 +853,9 @@ background: url('../assets/img/sprites.png') no-repeat -342px -354px;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 0;
   margin: 0 0 14px;
-  list-style: none; }
+  list-style: none;
+  flex-direction: column;
+}
 
 .nav--main li {
   list-style-image: none;
@@ -936,9 +938,14 @@ background: url('../assets/img/sprites.png') no-repeat -342px -354px;
   text-align: center;
   color: #fff;
   text-transform: uppercase; }
-
-.menu {
+.menu-toggle-show{
+  display: block;
+}
+.menu-toggle-hide{
   display: none;
+}
+.menu {
+  /*display: none;*/
   background-color: rgba(64, 64, 64, 0.85);
   z-index: 1;
   position: absolute;
