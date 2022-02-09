@@ -4,14 +4,14 @@ import Header from "./Header";
 import Footer from "./Footer";
 import AppRoutes from "./AppRoutes";
 import { Routes } from "./Navigation";
-import SideMenu from "./SideMenu";
+import SecondaryFooter from "./SecondaryFooter";
 
 const AppRoot: React.FC = () => {
   return (
     <BrowserRouter>
       <Header />
       <AppRoutes routes={Routes} />
-      <SideMenu />
+      <SecondaryFooter />
       <Footer />
     </BrowserRouter>
   );

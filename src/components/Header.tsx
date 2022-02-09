@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import "../../css/style3860.css";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 
 const Header: React.FC = () => {
   useEffect(() => {
-    // if (window && document) {
-    //   $("#menu_btn").on("click", function (e) {
-    //     const $btn = $(this);
-    //     $btn.toggleClass("is_active");
-    //
-    //     if ($btn.hasClass("is_active")) {
-    //       $("#menu").stop(true).fadeIn("fast");
-    //     } else {
-    //       $("#menu").stop(true).fadeOut("fast");
-    //     }
-    //   });
-    // }
+    if (window && document) {
+      $("#menu_btn").on("click", function (e) {
+        const $btn = $(this);
+        $btn.toggleClass("is_active");
+
+        if ($btn.hasClass("is_active")) {
+          $("#menu").stop(true).fadeIn("fast");
+        } else {
+          $("#menu").stop(true).fadeOut("fast");
+        }
+      });
+    }
     //
     // $("#menu_part").on("click", function (e) {
     //   const $btn = $(this);
@@ -39,34 +40,34 @@ const Header: React.FC = () => {
       <div id="menu" className="menu">
         <ul className="nav nav--main">
           <li className="nav__item">
-            <a href="news.html" className="block">
+            <NavLink to="/news" className="block">
               news
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="blog.html" className="block">
+            <NavLink to="/blog" className="block">
               blog
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="careers.html" className="block">
+            <NavLink to="/careers" className="block">
               Careers
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="about.html" className="block">
+            <NavLink to="/about" className="block">
               about us
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="contacts.html" className="block">
+            <NavLink to="/contact" className="block">
               contacts and offices
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item is_last">
-            <a href="#" className="block">
+            <NavLink to="#" className="block">
               Partners Portal
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

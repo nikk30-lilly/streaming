@@ -1,7 +1,7 @@
 import React from "react";
 import "../../css/style3860.css";
 
-const SideMenu: React.FC = () => {
+const SecondaryFooter: React.FC = () => {
   return (
     <nav className="nav nav--pictograms">
       <ul className="nav__list">
@@ -46,4 +46,4 @@ const SideMenu: React.FC = () => {
   );
 };
 
-export default SideMenu;
+export default SecondaryFooter;

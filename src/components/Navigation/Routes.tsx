@@ -1,5 +1,10 @@
 import React from "react";
 import { Home } from "../../pages/Home/Home";
+import { News } from "../../pages/News";
+import { Blog } from "../../pages/Blog";
+import { Careers } from "../../pages/Careers";
+import { About } from "../../pages/About";
+import { Contact } from "../../pages/Contact";
 const HomePage: React.FC = () => {
   return <h1 style={{ height: "200px", background: "blue" }}>Teams</h1>;
 };
@@ -21,26 +26,32 @@ export const Routes: Array<IRoute> = [
   {
     path: "/about",
     sidebarName: "About",
-    component: HomePage,
+    component: About,
     open: false,
   },
   {
     path: "/blog",
     sidebarName: "Blog",
-    component: HomePage,
+    component: Blog,
     open: false,
   },
   {
     path: "/careers",
     sidebarName: "Career",
-    component: HomePage,
+    component: Careers,
     open: false,
   },
 
   {
-    path: "/contacts",
-    sidebarName: "contacts",
-    component: HomePage,
+    path: "/contact",
+    sidebarName: "contact",
+    component: Contact,
+    open: false,
+  },
+  {
+    path: "/news",
+    sidebarName: "News",
+    component: News,
     open: false,
   },
 ];
