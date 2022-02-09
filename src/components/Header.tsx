@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../css/style3860.css";
 import logo from "../../assets/img/logo.png";
+
 const Header: React.FC = () => {
+  useEffect(() => {
+    // if (window && document) {
+    //   $("#menu_btn").on("click", function (e) {
+    //     const $btn = $(this);
+    //     $btn.toggleClass("is_active");
+    //
+    //     if ($btn.hasClass("is_active")) {
+    //       $("#menu").stop(true).fadeIn("fast");
+    //     } else {
+    //       $("#menu").stop(true).fadeOut("fast");
+    //     }
+    //   });
+    // }
+    //
+    // $("#menu_part").on("click", function (e) {
+    //   const $btn = $(this);
+    //   $btn.toggleClass("is_active");
+    //
+    //   if ($btn.hasClass("is_active")) {
+    //     $("#dropdown-menu").stop(true).fadeIn("fast");
+    //   } else {
+    //     $("#dropdown-menu").stop(true).fadeOut("fast");
+    //   }
+    // });
+  }, []);
   return (
     <header className="header">
       <a href="index.html" className="logo logo--spi" title="SPI International">
