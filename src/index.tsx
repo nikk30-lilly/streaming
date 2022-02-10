@@ -1,6 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/normalize.css";
+import "../css/superslides.css";
+import "../css/jquery.selectbox.css";
+import "../css/jquery.jscrollpane.css";
+import "../css/jquery.fancybox.css";
+import "../css/style3860.css";
 import AppRoot from "./components/AppRoot";
 
 import $ from "jquery";

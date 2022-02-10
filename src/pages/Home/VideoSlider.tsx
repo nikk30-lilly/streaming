@@ -1,20 +1,13 @@
-import React from "react";
-import "../../../css/style3860.css";
-import { Carousel } from "react-bootstrap";
+import React, { useEffect, useRef } from "react";
 import { videoProperty } from "./VideoProperty";
+import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 export const VideoSlider: React.FC = () => {
   return (
-    <Carousel indicators={false}>
+    <Carousel>
       {videoProperty.map((videoObj) => {
-        return (
-          <Carousel.Item key={videoObj.id}>
-            <video src={videoObj.src} controls />
-            <Carousel.Caption>
-              <h3>{videoObj.title}</h3>
-              <p>{videoObj.credit}</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        );
+        return <VideoPlayer key={videoObj.src} url={videoObj.src} />;
       })}
     </Carousel>
   );
