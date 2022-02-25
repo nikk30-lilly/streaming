@@ -1,6 +1,7 @@
 // development config
 const { merge } = require("webpack-merge");
 const commonConfig = require("./common");
+const path = require("path");
 module.exports = merge(commonConfig, {
   mode: "development",
   entry: [
@@ -9,6 +10,12 @@ module.exports = merge(commonConfig, {
   devServer: {
     hot: true,
     historyApiFallback: true,
+    static: {
+      directory: path.join(__dirname, "assets/"),
+    },
+    devMiddleware: {
+      // publicPath: "https://localhost:8080/dist/",
+    },
   },
   devtool: "cheap-module-source-map",
   plugins: [],

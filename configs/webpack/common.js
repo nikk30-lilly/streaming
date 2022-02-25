@@ -2,6 +2,7 @@
 const { resolve } = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   resolve: {
@@ -44,6 +45,9 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
       "window.jQuery": "jquery",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "../assets", to: "assets" }],
     }),
   ],
   performance: {

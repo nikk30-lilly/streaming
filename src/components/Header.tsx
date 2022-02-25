@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "../../css/style3860.css";
+// import "../../css/style3860.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 
 const Header: React.FC = () => {
   const [show, setShow] = useState<boolean>(false);
   const toggleMenu = () => {
+    console.log("sds");
     setShow(!show);
   };
 
@@ -23,23 +24,23 @@ const Header: React.FC = () => {
       >
         <ul className="nav nav--main" onClick={() => setShow(!show)}>
           <li className="nav__item">
-            <NavLink to="/news" className="block">
-              news
-            </NavLink>
-          </li>
-          <li className="nav__item">
-            <NavLink to="/blog" className="block">
-              blog
-            </NavLink>
-          </li>
-          <li className="nav__item">
-            <NavLink to="/careers" className="block">
-              Careers
+            <NavLink to="/" className="block">
+              Home
             </NavLink>
           </li>
           <li className="nav__item">
             <NavLink to="/about" className="block">
-              about us
+              About Us
+            </NavLink>
+          </li>
+          <li className="nav__item">
+            <NavLink to="/film-festival" className="block">
+              Film Festival
+            </NavLink>
+          </li>
+          <li className="nav__item">
+            <NavLink to="/press-kit" className="block">
+              Press Kit
             </NavLink>
           </li>
           <li className="nav__item">
@@ -48,8 +49,8 @@ const Header: React.FC = () => {
             </NavLink>
           </li>
           <li className="nav__item is_last">
-            <NavLink to="#" className="block">
-              Partners Portal
+            <NavLink to="/login" className="block">
+              Sign In/Sign Up
             </NavLink>
           </li>
         </ul>

@@ -3,8 +3,9 @@ import two from "../../../assets/data/files/2.png";
 import three from "../../../assets/data/files/3.png";
 import four from "../../../assets/data/files/4.png";
 import five from "../../../assets/data/files/5.png";
+import filmFestival from "../../../assets/data/files/ff.png";
 
-export const imageProperty = [
+export const imageListOne = [
   {
     id: 1,
     title: "Image 1",
@@ -34,5 +35,14 @@ export const imageProperty = [
     title: "Image 5",
     src: five,
     credit: "Video by cottonbro from Pexels",
+  },
+];
+
+export const imageListTwo = [
+  {
+    id: 1,
+    title: "Image 1",
+    src: filmFestival,
+    credit: "",
   },
 ];

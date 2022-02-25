@@ -1,103 +1,65 @@
 import React from "react";
 import "../../css/style3860.css";
-import contactImage from "../../assets/img/slides/spi.jpg";
+import con_1 from "../../assets/img/slides/con_1.png";
 export const Contact: React.FC = () => {
   return (
     <main className="main" role="main">
       <article className="countries">
         <header className="countries__header">
           <picture>
-            <source
-              srcSet="../site/img/slides/spi_land.jpg"
-              media="(max-width: 1024px) and (orientation: landscape)"
-              className="slider__slide_img img_fit img_fit--width"
-            />
-            <source
-              srcSet="../site/img/slides/spi_portrait.jpg"
-              media="(max-width: 1024px) and (orientation: portrait)"
-              className="slider__slide_img img_fit img_fit--width"
-            />
-            <img srcSet={contactImage} className="img_fit img_fit--width" />
+            <img srcSet={con_1} className="img_fit img_fit--width" />
           </picture>
         </header>
         <div className="countries__body">
-          <h1 className="countries__title">Contacts and offices</h1>
-          <section className="sec sec--regions" id="regions">
+          <h1 className="countries__title">Contact and offices</h1>
+          <section className="sec sec--regions" id="">
             <article className="region mix">
-              <h3 className="region__name">africa</h3>
+              <h3 className="region__name">Mumbai</h3>
               <p>
-                Georgina Twiss
+                306/307, Banarsi Heritage Ram Nagar, Nr. Inorbit Mall, New Link
+                Rd, Malad, W, Mumbai, 400064
                 <br />
-                <a href="mailto:georgina.twiss@spiintl.com">
-                  georgina.twiss@spiintl.com
-                </a>
-                <br /> +39 334 689 12 47
+                <a href="mailto:info@flockstudio.in">info@flockstudio.in</a>
+                <br /> 022 4962 6895
               </p>
             </article>
             <article className="region mix">
-              <h3 className="region__name">asia</h3>
+              <h3 className="region__name">Chennai</h3>
               <p>
-                Murat Muratoglu
+                Raheja Towers Delta A – Wing, Unit No 705, 177 Anna Salai,
+                Chennai – 600002, Tamil Nadu
                 <br />
-                <a href="mailto:murat.muratoglu@spiintl.com">
-                  murat.muratoglu@spiintl.com
-                </a>
-                <br /> +90 532 314 1457
+                <a href="mailto:info@flockstudio.in">info@flockstudio.in</a>
+                <br />
               </p>
             </article>
             <article className="region mix">
-              <h3 className="region__name">middle east</h3>
+              <h3 className="region__name">J&K</h3>
               <p>
-                Murat Muratoglu
+                453, Rose enclave, Shivpora
+                <br /> Srinagar, J&k
                 <br />
-                <a href="mailto:murat.muratoglu@spiintl.com">
-                  murat.muratoglu@spiintl.com
-                </a>
-                <br /> +90 532 314 1457
+                <a href="mailto:info@flockstudio.in">info@flockstudio.in</a>
+                <br />
               </p>
             </article>
             <article className="region mix">
-              <h3 className="region__name">WESTERN EUROPE</h3>
+              <h3 className="region__name">Chandigarh</h3>
               <p>
-                Georgina Twiss
+                195,2nd Floor, MDC Sector 6, Panchkula, Haryana - 134114
                 <br />
-                <a href="mailto:georgina.twiss@spiintl.com">
-                  georgina.twiss@spiintl.com
-                </a>
-                <br /> +39 334 689 12 47
+                <a href="mailto:info@flockstudio.in">info@flockstudio.in</a>
+                <br />{" "}
               </p>
             </article>
             <article className="region mix">
-              <h3 className="region__name">LATIN AMERICA AND CARIBBEAN</h3>
+              <h3 className="region__name">Delhi</h3>
               <p>
-                Pablo Zehle
+                Pocket 9A, Jasola vihar
+                <br /> new delhi, 110025
                 <br />
-                <a href="mailto:pablo.zehle@spiintl.com">
-                  pablo.zehle@spiintl.com
-                </a>
-                <br /> +52 1 55 4345 8494
-              </p>
-            </article>
-            <article className="region mix">
-              <h3 className="region__name">Ex YUGO countries AND ALBANIA</h3>
-              <p style={{ paddingTop: "8px" }}>
-                Murat Muratoglu
-                <br />
-                <a href="mailto:murat.muratoglu@spiintl.com">
-                  murat.muratoglu@spiintl.com
-                </a>
-                <br /> +90 532 314 1457
-              </p>
-            </article>
-            <article className="region mix">
-              <h3 className="region__name">SCANDINAVIA</h3>
-              <p>
-                Filipe Barbosa
-                <br />
-                <a href="mailto:filipe.barbosa@spiintl.com">
-                  filipe.barbosa@spiintl.com
-                </a>
-                <br /> +351 935 431 011
+                <a href="mailto:info@flockstudio.in">info@flockstudio.in</a>
+                <br />{" "}
               </p>
             </article>
           </section>

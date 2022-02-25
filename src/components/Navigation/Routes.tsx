@@ -1,8 +1,8 @@
 import React from "react";
 import { Home } from "../../pages/Home/Home";
 import { News } from "../../pages/News";
-import { Blog } from "../../pages/Blog";
-import { Careers } from "../../pages/Careers";
+import { FilmFestival } from "../../pages/FilmFestival";
+import { PressKit } from "../../pages/PressKit";
 import { About } from "../../pages/About";
 import { Contact } from "../../pages/Contact";
 const HomePage: React.FC = () => {
@@ -30,20 +30,20 @@ export const Routes: Array<IRoute> = [
     open: false,
   },
   {
-    path: "/blog",
-    sidebarName: "Blog",
-    component: Blog,
+    path: "/film-festival",
+    sidebarName: "Film Festival",
+    component: FilmFestival,
     open: false,
   },
   {
-    path: "/careers",
-    sidebarName: "Career",
-    component: Careers,
+    path: "/press-kit",
+    sidebarName: "Press kit",
+    component: PressKit,
     open: false,
   },
 
   {
-    path: "/contact",
+    path: "/contact-us",
     sidebarName: "contact",
     component: Contact,
     open: false,

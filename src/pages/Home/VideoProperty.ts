@@ -1,4 +1,4 @@
-export const videoProperty = [
+export const urlListOne = [
   {
     id: 1,
     title: "Video 1",
@@ -16,5 +16,14 @@ export const videoProperty = [
     title: "Video 3",
     src: "https://player.vimeo.com/progressive_redirect/playback/671410488/rendition/1080p?loc=external&signature=d66c3b4dd8d96697b33ca7462a86239242890ed2b582921185c724757668a40f",
     credit: "Video by cottonbro from Pexels",
+  },
+];
+
+export const urlListTwo = [
+  {
+    id: 1,
+    title: "Video 1",
+    src: "https://player.vimeo.com/progressive_redirect/playback/675453516/rendition/1080p?loc=external&signature=323503a97fea28009c596eab16d960a45595010a62d54a47a947034828e507ab",
+    credit: "",
   },
 ];
