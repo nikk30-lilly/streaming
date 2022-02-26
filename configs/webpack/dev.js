@@ -10,12 +10,6 @@ module.exports = merge(commonConfig, {
   devServer: {
     hot: true,
     historyApiFallback: true,
-    static: {
-      directory: path.join(__dirname, "assets/"),
-    },
-    devMiddleware: {
-      // publicPath: "https://localhost:8080/dist/",
-    },
   },
   devtool: "cheap-module-source-map",
   plugins: [],

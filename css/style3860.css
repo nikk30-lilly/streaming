@@ -952,19 +952,33 @@ a.btn:hover {
   text-transform: uppercase; }
 .menu-toggle-show{
   display: block;
-}
-.menu-toggle-hide{
-  display: none;
-}
-.menu {
-  display: block;
   background-color: rgba(64, 64, 64, 0.85);
   z-index: 1;
   position: absolute;
   left: 10px;
   width: 276px;
   padding: 12px 0 19px;
-  margin-top: 20px; }
+  margin-top: 20px
+}
+.menu-toggle-hide{
+  display: none;
+  background-color: rgba(64, 64, 64, 0.85);
+  z-index: 1;
+  position: absolute;
+  left: 10px;
+  width: 276px;
+  padding: 12px 0 19px;
+  margin-top: 20px
+}
+.menu {
+  background-color: rgba(64, 64, 64, 0.85);
+  z-index: 1;
+  position: absolute;
+  left: 10px;
+  width: 276px;
+  padding: 12px 0 19px;
+  margin-top: 20px
+}
 
 .channels .channels__item:nth-child(2n+2) {
   margin-right: 0;

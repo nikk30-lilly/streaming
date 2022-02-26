@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "../../css/style3860.css";
+import "../../css/style3860.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 
@@ -12,15 +12,15 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <a href="index.html" className="logo logo--spi" title="SPI International">
+      <NavLink to="/" className="logo logo--spi" title="SPI International">
         <img src={logo} alt="Flock logo" />
-      </a>
+      </NavLink>
       <div id="menu_btn" className="btn btn--menu" onClick={() => toggleMenu()}>
         <div className="strips_bar"></div>
       </div>
       <div
         id="menu"
-        className={show ? `menu menu-toggle-show` : `menu menu-toggle-hide`}
+        className={show ? `menu-toggle-show` : `menu-toggle-hide menu`}
       >
         <ul className="nav nav--main" onClick={() => setShow(!show)}>
           <li className="nav__item">
